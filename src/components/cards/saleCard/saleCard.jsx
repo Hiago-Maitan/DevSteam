@@ -15,7 +15,7 @@ function SaleCard() {
             <h4>R$89,90</h4>
           </div>
         </div>
-       <Button>Adicionar ao carrinho</Button>
+       <Button fullWidth>Adicionar ao carrinho</Button>
       </div>
     </div>
    );
