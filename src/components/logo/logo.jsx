@@ -10,7 +10,7 @@ export default function Logo(){
       height={60}
       alt="Picture of the author"
     />
-    <h1>DevSteam</h1>
+    <h1 className={styles.name}>DevSteam</h1>
     </div>
   )
 }

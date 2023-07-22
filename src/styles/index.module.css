@@ -5,7 +5,9 @@
 .saleContainer{
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-itens: center;
   gap: 8px;
 }
 
@@ -15,4 +17,11 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
+}
+
+@media(max-width:850px){
+  .saleContainer{
+    justify-content: center;
+  }
+
 }
