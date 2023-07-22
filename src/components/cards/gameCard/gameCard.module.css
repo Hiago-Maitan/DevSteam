@@ -1,0 +1,38 @@
+.gameCard{
+  display:flex;
+  background: linear-gradient(180deg, #19587B 0%, #2B87AE 100%);
+}
+
+.info{
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info h3{
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.info p{
+  flex: 1;
+  font-size: 16px;
+  color: #C7C7C7;
+  font-weight: 400;
+}
+
+.price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.price h2{
+  color: #BEEB14;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
