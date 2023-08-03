@@ -1,21 +1,22 @@
-import SaleCard from '@/components/cards/saleCard/saleCard'
-import Container from '@/components/container/container'
+import Head from 'next/head'
+import { useRecoilState } from 'recoil'
+
+import { cartState } from '../atoms/cart'
+
+import styles from '../styles/index.module.css'
+
 import Navbar from '@/components/navbar/navbar'
 import Subtitle from '@/components/tipography/subtitle/subtitle'
+import Container from '@/components/container/container'
+import SaleCard from '@/components/cards/saleCard/saleCard'
 import GameCard from '@/components/cards/gameCard/gameCard'
-import Head from 'next/head'
-import styles from '../styles/index.module.css'
-import { useState } from 'react'
+
 
 export default function Home() {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useRecoilState(cartState)
 
   const handleAddProduct = (info) => {
     setCart([...cart, info])
-  }
-
-  const handleRemoveProduct = (pos) => {
-    setCart(cart.filter((obj, posObj) => posObj !== pos))
   }
 
   return (
@@ -27,7 +28,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Navbar cart={cart} onRemove={handleRemoveProduct} />
+        <Navbar/>
         <Container>
           <div className={styles.session}>
             <Subtitle>Promoções</Subtitle>
@@ -37,29 +38,29 @@ export default function Home() {
                 discount={75}
                 fullPrice={"79,99"}
                 discountPrice={"39,99"}
-                onAdd={()=>{handleAddProduct({name: 'league-of-legends', price: 30.00, image: 'league-of-legends.jpg' })}}
+                onAdd={() => { handleAddProduct({ name: 'league-of-legends', price: 30.00, image: 'league-of-legends.jpg' }) }}
               />
               <SaleCard
                 image={"dota-2.jpg"}
                 discount={30}
                 fullPrice={"19,99"}
                 discountPrice={"9,99"}
-                onAdd={()=>{handleAddProduct({name: 'dota-2', price: 30.00, image: 'dota-2.jpg' })}}
+                onAdd={() => { handleAddProduct({ name: 'dota-2', price: 30.00, image: 'dota-2.jpg' }) }}
               />
               <SaleCard
                 image={"valorant.jpg"}
                 discount={50}
                 fullPrice={"30,00"}
                 discountPrice={"15,99"}
-                onAdd={()=>{handleAddProduct({name: 'valorant', price: 30.00, image: 'valorant.jpg' })}}
+                onAdd={() => { handleAddProduct({ name: 'valorant', price: 30.00, image: 'valorant.jpg' }) }}
               />
             </div>
           </div>
           <div className={styles.session}>
             <Subtitle>Outros jogos</Subtitle>
             <div className={styles.gameContainer}>
-              <GameCard 
-              onAdd={()=>{handleAddProduct({name: 'CS-GO', price: 99.99, image: 'counter-strike.jpg' })}}
+              <GameCard
+                onAdd={() => { handleAddProduct({ name: 'CS-GO', price: 99.99, image: 'counter-strike.jpg' }) }}
               />
             </div>
           </div>

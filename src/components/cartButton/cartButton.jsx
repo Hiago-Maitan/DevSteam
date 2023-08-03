@@ -1,20 +1,25 @@
-import styles from './cartButton.module.css'
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+
+import { cartState } from '../../atoms/cart'
+
 import { AiOutlineShoppingCart } from "react-icons/ai"
+import styles from './cartButton.module.css'
 
 import CartMenu from '../cartMenu/cartMenu';
-import { useState } from 'react';
 
-function CartButton({cart, onRemove}) {
+function CartButton() {
+   const cart = useRecoilValue(cartState)
    const [open, setOpen] = useState(false)
 
    return (
-      <div>
+      <div className={styles.cartButton} onClick={() => { setOpen(!open) }}>
          <AiOutlineShoppingCart
-            className={styles.icon}
             size={40}
-            onClick={() => { setOpen(!open) }}
          />
-         {open && <CartMenu cart={cart} onRemove={onRemove} />}
+         {cart.length > 0 && <div className={styles.quatity}>{cart.length}</div>}
+
+         {open && <CartMenu />}
       </div>
    );
 }
