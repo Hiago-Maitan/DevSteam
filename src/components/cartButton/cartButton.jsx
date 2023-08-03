@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai"
 import CartMenu from '../cartMenu/cartMenu';
 import { useState } from 'react';
 
-function CartButton() {
+function CartButton({cart, onRemove}) {
    const [open, setOpen] = useState(false)
 
    return (
@@ -14,7 +14,7 @@ function CartButton() {
             size={40}
             onClick={() => { setOpen(!open) }}
          />
-         {open && <CartMenu />}
+         {open && <CartMenu cart={cart} onRemove={onRemove} />}
       </div>
    );
 }

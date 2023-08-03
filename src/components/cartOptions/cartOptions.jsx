@@ -2,14 +2,14 @@ import Image from 'next/image';
 
 import styles from './cartOptions.module.css'
 
-function CartOptions() {
-  return ( 
+function CartOptions({image, title, price, onRemove}) {
+  return (
     <div className={styles.option}>
-      <Image src={`/products/league-of-legends.jpg`} width={62} height={74}/>
+      <Image className={styles.image} src={`/products/${image}`} alt={`produto ${image}`} width={62} height={74} />
       <div className={styles.info}>
-        <h3 className={styles.text}>League of Legends</h3>
-        <h3 className={styles.price}>R$99,99</h3>
-        <p className={styles.remove}>remover</p>
+        <h3 className={styles.text}>{title}</h3>
+        <h3 className={styles.price}>R${price.toFixed(2)}</h3>
+        <p className={styles.remove} onClick={onRemove}>remover</p>
       </div>
     </div>
   );
