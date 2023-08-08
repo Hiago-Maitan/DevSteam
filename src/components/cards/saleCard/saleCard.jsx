@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import styles from './saleCard.module.css'
 import Button from '@/components/forms/button/button';
+import Link from 'next/link';
 
-function SaleCard({ image, discount, fullPrice, discountPrice, onAdd }) {
+function SaleCard({ image, discount, fullPrice, discountPrice, onAdd, adress }) {
   return (
     <div className={styles.saleCard}>
-      <Image src={`/products/${image}`} alt={image} width={250} height={300} />
+      <Link href={`https://${adress}`}> <Image src={`/products/${image}`} alt={image} width={250} height={300} /> </Link>
+      
       <div className={styles.info}>
         <h3 className={styles.title}>Oferta Exclusiva</h3>
         <div className={styles.priceCard}>
