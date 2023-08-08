@@ -7,6 +7,11 @@
   padding: 0 60px;
 }
 
+.warning{
+  color: #6D931E;
+  text-transform: uppercase; 
+}
+
 @media (max-width: 700px){
 .navbar{
   padding: 0 20px;
