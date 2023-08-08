@@ -8,7 +8,6 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <Logo />
-      <Input type="text" placeholder="Buscar"/>
       <CartButton/>
     </nav>
   )
